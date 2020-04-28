@@ -14,6 +14,10 @@ ul {
   margin-bottom: 0;
 }
 
+body {
+  background-color: rgb(179, 171, 101);
+}
+
 @media (max-width: 1272px) {
   .menu__item span {
     font-size: 20px;
@@ -285,4 +289,25 @@ ul {
   font-size: 18px;
   padding-bottom: 5px;
   text-align: center;
+}
+
+.commit__page7 {
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: start;
+  align-items: center;
+}
+
+.you__vesti {
+  margin-bottom: 30px;
+  text-align: center;
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 20px;
+  box-shadow: 1px 1px 10px 0px rgba(50, 50, 50, 1);
+}
+
+.you__vesti h2 {
+  margin-top: 10px;
+  font-size: 30px;
 }
