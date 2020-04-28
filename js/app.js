@@ -72,4 +72,4 @@ Promise.all([a]).then(value => {
     } else {
         led.classList.add('red');
     }
-})
+});

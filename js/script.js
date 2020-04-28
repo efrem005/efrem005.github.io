@@ -1,3 +1,7 @@
+import Page from 'Page';
+
+Page();
+
 const a = document.querySelector(".data-date");
 
 function nowDate() {
@@ -106,9 +110,11 @@ window.onload = function () {
 
           document.querySelector(".temp__sheet").innerHTML =
             "Вода: " + data[0].gsx$weather.$t + " &#8451";
+          //
           document.querySelector(".foofer__water").innerHTML =
             "Вода: " + data[0].gsx$weather.$t + " &#8451";
-          // Новости анапа
+          //TITLE
+          document.querySelector('title').innerHTML = data[0].gsx$title.$t;
 
           document.querySelector(".commit__page3").innerHTML = covid1(data);
           document.querySelector(".update__data").innerHTML = update(data);
