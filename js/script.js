@@ -1,8 +1,4 @@
-import Page from 'Page';
-
-Page();
-
-const a = document.querySelector(".data-date");
+// const a = document.querySelector(".data-date");
 
 function nowDate() {
   const now = new Date();
