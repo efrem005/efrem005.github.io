@@ -105,9 +105,9 @@ window.onload = function () {
           // console.log(data);
 
           document.querySelector(".temp__sheet").innerHTML =
-            "Вода: " + data[0].gsx$sea.$t + " &#8451";
+            "Вода: " + data[0].gsx$weather.$t + " &#8451";
           document.querySelector(".foofer__water").innerHTML =
-            "Вода: " + data[0].gsx$sea.$t + " &#8451";
+            "Вода: " + data[0].gsx$weather.$t + " &#8451";
           // Новости анапа
 
           document.querySelector(".commit__page3").innerHTML = covid1(data);
