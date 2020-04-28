@@ -140,7 +140,7 @@ window.onload = function () {
       const day = now.getDate();
       let out = "";
       let upDay = data[1].gsx$update.$t;
-      console.log(data);
+      // console.log(data);
       if (upDay == day) {
         out += `<span class="data__green">обновлено</span>`;
       } else if (upDay == "") {
