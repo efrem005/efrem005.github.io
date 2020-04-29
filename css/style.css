@@ -18,6 +18,12 @@ body {
   background-color: rgb(179, 171, 101);
 }
 
+.icon_weather {
+  width: 40px;
+  padding-bottom: 5px;
+  /* padding-left: 10px; */
+}
+
 @media (max-width: 1272px) {
   .menu__item span {
     font-size: 20px;
