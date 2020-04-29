@@ -22,7 +22,7 @@ window.onload = function () {
       })
   });
   let b = new Promise((resolve, reject) => {
-    let page = 10;
+    let page = 7;
     fetch(`https://spreadsheets.google.com/feeds/list/1gZ41L7djGnCzH0m1MZN8FmgL0OCuIn4U2rhe6QTWLmM/${page}/public/values?alt=json`)
       .then(data => {
         resolve(data.text());
