@@ -186,8 +186,9 @@ window.onload = function () {
       const day = now.getDate();
       let out = "";
       let upDay = data[1].gsx$update.$t;
-      // console.log(data);
-      if (upDay == day) {
+      let dnDay = data[3].gsx$update.$t
+      // console.log(dnDay, upDay);
+      if (upDay == day && dnDay == day) {
         out += `<span class="data__green">обновлено</span>`;
       } else if (upDay == "") {
         out += `<span class="data__red">пусто</span>`;

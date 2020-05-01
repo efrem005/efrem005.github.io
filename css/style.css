@@ -107,14 +107,15 @@ body {
 
 .data__red {
   font-size: 30px;
-  color: #f00;
-  text-shadow: 0 0 10px red;
+  color: red;
+  text-shadow: 1px 1px 2px black, 0 0 20px rgb(150, 0, 0);
 }
 
 .data__green {
   font-size: 30px;
-  color: rgb(18, 99, 18);
-  text-shadow: 0 0 10px rgb(43, 168, 43);
+  color: green;
+  text-shadow: 1px 1px 2px black, 0 0 20px rgb(0, 150, 0);
+  /* text-shadow: 0 0 20px rgb(0, 255, 0); */
 }
 
 .temp__data {
