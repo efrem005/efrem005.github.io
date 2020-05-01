@@ -41,7 +41,14 @@ window.onload = function () {
         resolve(data.text());
       })
   });
-  Promise.all([a, b, c, d]).then(value => {
+  let e = new Promise((resolve, reject) => {
+    let page = 1;
+    fetch(`https://spreadsheets.google.com/feeds/list/1gZ41L7djGnCzH0m1MZN8FmgL0OCuIn4U2rhe6QTWLmM/${page}/public/values?alt=json`)
+      .then(data => {
+        resolve(data.text());
+      })
+  });
+  Promise.all([a, b, c, d, e]).then(value => {
 
     document.querySelector(".menu__item").addEventListener("click", fTabs);
 
@@ -72,6 +79,12 @@ window.onload = function () {
       }
     }
 
+    // MYSQL //
+    let e = JSON.parse(value[4]);
+    let mysql = e.feed.entry;
+    // console.log(mysql);
+
+
 
 
     // GOOGLE SHEETS /// ВЫБОРКА data //
@@ -93,8 +106,51 @@ window.onload = function () {
     document.querySelector(".update__data").innerHTML = update(data);
     document.querySelector(".commit__page1").innerHTML = usd(data);
     document.querySelector(".commit__page4").innerHTML = listRegion(data);
+    document.querySelector(".foofer__feolet").innerHTML = fialet(data);
+    document.querySelector('.temp__data').insertAdjacentHTML('afterend', menuli(data));
+    document.querySelector('.hat__newhat').insertAdjacentHTML('afterend', hat(mysql));
+
+    // 
+
+    function hat(mysql) {
+      let out = "";
+      // console.log(data);
+      for (let i = 0; i < mysql.length; i++) {
+        if (!mysql[i].gsx$name.$t == "") {
+          if (!mysql[i].gsx$messages.$t == "") {
+            out += `<h1 class="hat__name">${mysql[i].gsx$name.$t}</h1>`
+            out += `<h3 class="hat__message">${mysql[i].gsx$messages.$t}</h3>`
+          }
+        }
+      }
+      return out;
+    }
 
 
+
+
+    function fialet(data) {
+      let out = "";
+      // console.log(data);
+      out += `<h3 class="menu__ultraviolet">УФ-индекс: ${data[2].gsx$weather.$t}</h3>`;
+
+      return out;
+    }
+
+
+
+    // MENU LIST //
+
+    function menuli(data) {
+      let out = "";
+      // console.log(data);
+      for (let i = 0; i < data.length; i++) {
+        out += `<li class="menu_list">`;
+        out += `<span class="menu__link" data-tabs="${i}">${data[i].gsx$title.$t}</span>`;
+        out += `</li>`;
+      }
+      return out;
+    }
 
     // TITLE NAME //
 
@@ -183,7 +239,7 @@ window.onload = function () {
     function anapa(news) {
       let out = "";
       for (var i = 0; i < news.length; i++) {
-        if (news[i]["gsx$on"]["$t"] != 0) {
+        if (!news[i].gsx$title1.$t == "") {
           out += `<div class="new__vesti">`;
           out += `<h1>`;
           out += `<a href="${news[i].gsx$url1.$t}">${news[i].gsx$title1.$t}</a>`;
@@ -220,18 +276,21 @@ window.onload = function () {
     function youtube() {
       let out = "";
       for (var i = 0; i < you.length; i++) {
-        if (you[i]["gsx$youon"]["$t"] != 0) {
-          out += `<div class="you__vesti">`;
-          out += `<h1>`;
-          out += `<a href="${you[i].gsx$url.$t}">${you[i].gsx$title.$t}</a>`;
-          out += `</h1>`;
-          out += `<span>`;
-          out += `<img src="${you[i].gsx$img.$t}" alt="${you[i].gsx$title.$t}">`;
-          out += `</span>`;
-          out += `<h2>`;
-          out += `${you[i].gsx$timeout.$t}`
-          out += `</h2>`;
-          out += `</div>`;
+        let d = you[i]["gsx$timeout"]["$t"];
+        if (d == "Пусто") {} else {
+          if (i > 0) {
+            out += `<div class="you__vesti">`;
+            out += `<h1>`;
+            out += `<a href="${you[i].gsx$url.$t}">${you[i].gsx$title.$t}</a>`;
+            out += `</h1>`;
+            out += `<span>`;
+            out += `<img src="${you[i].gsx$img.$t}" alt="${you[i].gsx$title.$t}">`;
+            out += `</span>`;
+            out += `<h2>`;
+            out += `${you[i].gsx$timeout.$t}`
+            out += `</h2>`;
+            out += `</div>`;
+          }
         }
       }
       return out;
@@ -255,42 +314,7 @@ window.onload = function () {
   //     // console.log(this);
   //   };
 
-  var script_url =
-    "https://script.google.com/macros/s/AKfycbxHXgnvyGy-yt1HksIHkA2HsfvpnDjArBPCV53Z/exec";
 
-  // Make an AJAX call to Google Script
-  function insert_value() {
-    let login = document.querySelector("#login").value;
-    let pass = document.querySelector("#pass").value;
-    let phone = document.querySelector("#phone").value;
-
-    console.log(phone);
-
-    var url =
-      script_url +
-      "?callback=ctrlq&login=" +
-      login +
-      "&pass=" +
-      pass +
-      "&phone=" +
-      phone +
-      "&action=insert";
-
-    console.log(url);
-
-    var request = jQuery.ajax({
-      crossDomain: true,
-      url: url,
-      method: "GET",
-      dataType: "jsonp",
-    });
-  }
-
-  function ctrlq(e) {
-    alert(e.result);
-    console.log("Yes...");
-    document.querySelector("#name").value = "";
-  }
 
   // настройки //
 
@@ -318,3 +342,44 @@ window.onload = function () {
 
 
 };
+
+/////// ЧАТ ///////
+
+document.querySelector('.hat__btn').addEventListener("click", insert_value);
+
+var script_url =
+  "https://script.google.com/macros/s/AKfycbxHXgnvyGy-yt1HksIHkA2HsfvpnDjArBPCV53Z/exec";
+
+// Make an AJAX call to Google Script
+function insert_value() {
+  let login = document.querySelector(".hat__title").value;
+  let pass = document.querySelector(".hat__text").value;
+
+  // console.log(login);
+  // console.log(pass);
+
+  var url =
+    script_url +
+    "?callback=ctrlq&login=" +
+    login +
+    "&pass=" +
+    pass +
+    "&action=insert";
+
+  console.log(url);
+
+  var request = jQuery.ajax({
+    crossDomain: true,
+    url: url,
+    method: "GET",
+    dataType: "jsonp",
+  });
+}
+
+function ctrlq(e) {
+  // alert(e.result);
+  // console.log(e.result);
+  document.querySelector(".hat__title").value = "";
+  document.querySelector(".hat__text").value = "";
+  document.querySelector(".hat__out").innerHTML = e.result;
+}

@@ -66,7 +66,6 @@ body {
 
 .commit {
   width: 1200px;
-  height: 100vh;
   display: none;
   margin: 0 auto;
 }
@@ -130,7 +129,7 @@ body {
 
 
 .commit__page3 {
-  display: flex;
+  /* display: flex; */
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -227,8 +226,7 @@ body {
 .commit__page5 {
   flex-direction: row;
   flex-wrap: wrap;
-  /* justify-content: flex-start; */
-  justify-content: space-evenly;
+  justify-content: space-around;
 }
 
 .new__vesti {
@@ -271,6 +269,7 @@ body {
   color: white;
   border-radius: 20px 0 0 0;
   transition: 1s ease all;
+  box-shadow: 0 0 5px 0 black;
 }
 
 .footer__temp:hover {
@@ -289,31 +288,115 @@ body {
   font-size: 24px;
   padding-bottom: 5px;
   text-align: center;
+  margin: 0;
+  color: black;
+  margin-bottom: 5px;
 }
 
 .footer__temp h3 {
   font-size: 18px;
   padding-bottom: 5px;
   text-align: center;
+  margin: 0;
+  color: green;
+  margin-bottom: 5px;
+}
+
+.footer__temp h3:first-child {
+  color: #f00;
 }
 
 .commit__page7 {
-  flex-direction: column;
-  flex-wrap: nowrap;
-  justify-content: start;
-  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
 
 .you__vesti {
-  margin-bottom: 30px;
   text-align: center;
+  width: 500px;
+  min-height: 400px;
+  margin-bottom: 30px;
   padding: 10px;
   border: 1px solid black;
   border-radius: 20px;
   box-shadow: 1px 1px 10px 0px rgba(50, 50, 50, 1);
+  position: relative;
+}
+
+.you__vesti h1 {
+  font-size: 30px;
 }
 
 .you__vesti h2 {
   margin-top: 10px;
   font-size: 30px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+
+/* ЧАТ */
+
+.commit__page6 {
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.hat__left {
+  width: 30%;
+  min-height: 500px;
+  /* background: forestgreen; */
+  text-align: center;
+}
+
+.hat__right {
+  width: 70%;
+  min-height: 400px;
+  padding: 5px;
+  font-size: 30px;
+}
+
+.hat__right h1 {
+  border-top: 1px solid black;
+  font-size: 50px;
+  color: #f00
+}
+
+.hat__right h3 {
+  font-size: 30px;
+  color: black;
+}
+
+.hat__btn {
+  padding: 5px 15px;
+  cursor: pointer;
+  border: 1px solid black;
+  border-radius: 10px;
+  padding-top: 10px;
+}
+
+.hat__btn:active {
+  box-shadow: 0 0 4px 1px black;
+}
+
+.hat__text,
+.hat__title {
+  border-radius: 10px;
+  border: 1px solid black;
+  outline: none;
+  padding: 3px;
+}
+
+.hat__newhat {
+  width: 98%;
+  min-height: 10px;
+  margin: 5px auto;
+  text-align: center;
+  font-size: 40px;
+  border-radius: 30px;
+  text-transform: uppercase;
 }
