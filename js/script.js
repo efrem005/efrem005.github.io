@@ -13,18 +13,6 @@ function nowDate() {
 // nowDate();
 
 
-// document.querySelector('.menu-btn').addEventListener('click', function () {
-//   let li = document.querySelectorAll('.menu_list');
-//   for (let i = 0; i < li.length; i++) {
-//     // if (li.target = )
-//     console.log(li.style.target);
-//     li[i].style.display = 'flex';
-//     // } else {
-//     //   li[i].style.display = 'none';
-//   }
-// });
-
-
 window.onload = function () {
 
   let a = new Promise((resolve, reject) => {
