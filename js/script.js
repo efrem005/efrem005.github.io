@@ -12,6 +12,19 @@ function nowDate() {
 }
 // nowDate();
 
+
+// document.querySelector('.menu-btn').addEventListener('click', function () {
+//   let li = document.querySelectorAll('.menu_list');
+//   for (let i = 0; i < li.length; i++) {
+//     // if (li.target = )
+//     console.log(li.style.target);
+//     li[i].style.display = 'flex';
+//     // } else {
+//     //   li[i].style.display = 'none';
+//   }
+// });
+
+
 window.onload = function () {
 
   let a = new Promise((resolve, reject) => {
@@ -107,7 +120,7 @@ window.onload = function () {
     document.querySelector(".commit__page1").innerHTML = usd(data);
     document.querySelector(".commit__page4").innerHTML = listRegion(data);
     document.querySelector(".foofer__feolet").innerHTML = fialet(data);
-    document.querySelector('.temp__data').insertAdjacentHTML('afterend', menuli(data));
+    document.querySelector('.menu__item').insertAdjacentHTML('afterbegin', menuli(data));
     document.querySelector('.hat__newhat').insertAdjacentHTML('afterend', hat(mysql));
 
     // 
