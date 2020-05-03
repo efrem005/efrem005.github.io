@@ -395,7 +395,6 @@ body {
   }
 
   .menu__item {
-    display: none;
     font-size: 20px;
     width: 100%;
     max-height: 100%;
@@ -406,12 +405,13 @@ body {
     transition: 1s ease all;
     position: absolute;
     color: white;
+    background: rgba(0, 0, 0, 0.363);
+    top: -500px;
   }
 
   .menu_list {
     text-align: center;
     margin: 0;
-    transition: 1s ease all;
   }
 
   .commit {
@@ -429,7 +429,7 @@ body {
     position: absolute;
     right: 15px;
     top: 12px;
-    color: red;
+    color: black;
     z-index: 999;
   }
 
@@ -451,15 +451,14 @@ body {
   }
 
   input.menu-btn:checked+label.menu-btn {
-    background: rgba(150, 28, 28, 0.171);
-    color: #fff;
+    color: green;
+    transition: 1s ease all;
   }
 
   input.menu-btn:checked~ul {
-    display: block;
-    position: absolute;
-    max-height: 5000px;
+    top: 0;
     background: rgba(0, 0, 0, 0.8);
+    transition: 1s ease all;
   }
 
   .footer__temp {
