@@ -111,7 +111,7 @@ window.onload = function () {
     document.querySelector('.menu__item').insertAdjacentHTML('afterbegin', menuli(data));
     document.querySelector('.hat__newhat').insertAdjacentHTML('afterend', hat(mysql));
 
-    // 
+    //
 
     function hat(mysql) {
       let out = "";
@@ -275,7 +275,7 @@ window.onload = function () {
 
     document.querySelector('.commit__page7').innerHTML = youtube(you);
 
-    function youtube() {
+    function youtube(you) {
       let out = "";
       for (var i = 0; i < you.length; i++) {
         let d = you[i]["gsx$timeout"]["$t"];
