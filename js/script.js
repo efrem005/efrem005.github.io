@@ -323,7 +323,7 @@ window.onload = function () {
   // color background //
 
   document.querySelector('.btn__view').onclick = function () {
-    let color = document.getElementById('color').value;
+    let color = document.getElementById('color-hd').value;
     if (!color == "") {
       localStorage.setItem('color', color);
       body.style.backgroundColor = color;
