@@ -252,6 +252,7 @@ ul {
   text-align: center;
   text-transform: uppercase;
   color: rgb(87, 87, 87);
+  margin-bottom: 0;
 }
 
 .footer__temp h2 {
@@ -269,7 +270,7 @@ ul {
   text-align: center;
   margin: 0;
   color: green;
-  margin-bottom: 5px;
+  margin-bottom: 3px;
 }
 
 .footer__temp h3:first-child {

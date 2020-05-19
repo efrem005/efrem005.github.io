@@ -261,7 +261,7 @@ window.onload = function () {
     let temp = JSON.parse(value[2]);
     //температура воздуха в Анапе//
     document.querySelector(".footer__street").innerHTML =
-      "улица: +" + temp.sensors[0].value + " &#8451 ";
+      "Улица: +" + temp.sensors[0].value + " &#8451 ";
     // console.log(temp);
     // TITLE NAME// TEMP ///
     document.querySelector('title').innerHTML = data[2].gsx$update.$t + ' ' + temp.sensors[0].value + " &#8451 ";
